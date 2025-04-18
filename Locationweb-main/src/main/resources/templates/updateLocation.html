@@ -1,0 +1,165 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Update Location</title>
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+	<h1>Update Location</h1>
+
+<form action="updateLoc" method="POST">
+<pre>
+Id: <input type="text" name="id" th:value="${location.id}" readonly/>
+Code: <input type="text" name="code" th:value="${location.code}"/>
+Name: <input type="text" name="name" th:value="${location.name}"/>
+Type: Urban <input type="radio" name="type" value="URBAN" th:field="*{location.type}"/>
+	Rural <input type="radio" name="type" value="RURAL" th:field="*{location.type}"/>
+<input type="submit" value="save"/>
+</pre>
+</form>
+
+</body>
+</html>
+
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update Location</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .container {
+        background: linear-gradient(135deg, #ffffffcc, #e0f7fa);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        max-width: 550px;
+        animation: slideIn 1.2s ease forwards;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+    }
+
+    @keyframes slideIn {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        color: #003366;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        font-weight: 600;
+        margin-top: 10px;
+        color: #222;
+    }
+
+    input[type="text"],
+    input[type="radio"] {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    input[type="text"]:focus {
+        outline: none;
+        border-color: #007BFF;
+        box-shadow: 0 0 8px rgba(0,123,255,0.3);
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .radio-group label {
+        font-weight: normal;
+        color: #333;
+    }
+
+    input[type="submit"] {
+        margin-top: 25px;
+        padding: 12px;
+        background: linear-gradient(90deg, #28a745, #218838);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.4s ease;
+    }
+
+    input[type="submit"]:hover {
+        background: linear-gradient(90deg, #218838, #1e7e34);
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Location</h1>
+        <form action="updateLoc" method="POST">
+            <label>Id:</label>
+            <input type="text" name="id" th:value="${location.id}" readonly/>
+
+            <label>Code:</label>
+            <input type="text" name="code" th:value="${location.code}"/>
+
+            <label>Name:</label>
+            <input type="text" name="name" th:value="${location.name}"/>
+
+            <label>Type:</label>
+            <div class="radio-group">
+                <label>Urban</label>
+                <input type="radio" name="type" value="URBAN" th:field="*{location.type}"/>
+                <label>Rural</label>
+                <input type="radio" name="type" value="RURAL" th:field="*{location.type}"/>
+            </div>
+
+            <input type="submit" value="Save"/>
+        </form>
+    </div>
+</body>
+</html>
+
+ 

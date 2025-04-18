@@ -1,0 +1,172 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Locations</title>
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+<h2>Locations:</h2>
+<table>
+<tr>
+<th>id</th>
+<th>code</th>
+<th>name</th>
+<th>type</th>
+<th>EDITE</th>
+<th>DELETE</th>
+</tr>
+
+<tr th:each="location:${locations}">
+<td th:text="${location.id}"></td>
+<td th:text="${location.code}"></td>
+<td th:text="${location.name}"></td>
+<td th:text="${location.type}"></td>
+
+<td><a th:href="@{'deleteLocation?id='+${location.id}}">delete</a></td>
+<td><a th:href="@{'showUpdate?id='+${location.id}}">edit</a></td>
+</tr>
+</c:forEach>
+</table>
+<a href="showCreate">Add Location</a>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Locations</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px;
+        background: linear-gradient(-45deg, #ff4b2b, #ff416c, #6a11cb, #2575fc, #00c9ff);
+        background-size: 400% 400%;
+        animation: gradientBG 20s ease infinite;
+        transition: all 0.2s ease-in-out;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+
+    table {
+        width: 90%;
+        max-width: 1000px;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: 0.2s ease;
+    }
+
+    th {
+        background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        color: #fff;
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    tr:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        transition: all 0.2s ease;
+    }
+
+    a {
+        text-decoration: none;
+        padding: 8px 16px;
+        margin: 4px;
+        background-color: #ff416c;
+        color: #fff;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: 0.2s ease;
+        display: inline-block;
+    }
+
+    a:hover {
+        background-color: #ff4b2b;
+        transform: scale(1.05);
+    }
+
+    .add-btn {
+        margin-top: 30px;
+        background: linear-gradient(to right, #00c9ff, #92fe9d);
+        padding: 12px 26px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+        transition: 0.2s ease-in-out;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .add-btn:hover {
+        background: linear-gradient(to right, #92fe9d, #00c9ff);
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+
+<h2>Locations:</h2>
+<table>
+<tr>
+    <th>Id</th>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Delete</th>
+    <th>Edit</th>
+</tr>
+
+<tr th:each="location : ${locations}">
+    <td th:text="${location.id}"></td>
+    <td th:text="${location.code}"></td>
+    <td th:text="${location.name}"></td>
+    <td th:text="${location.type}"></td>
+    <td><a th:href="@{'deleteLocation?id='+${location.id}}">Delete</a></td>
+    <td><a th:href="@{'showUpdate?id='+${location.id}}">Edit</a></td>
+</tr>
+</table>
+
+<a class="add-btn" href="showCreate">➕ Add Location</a>
+
+</body>
+</html>
